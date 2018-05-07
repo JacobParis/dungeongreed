@@ -39,6 +39,16 @@
                 margin: 0;
                 white-space: nowrap; // Stops dice from wrapping down
             }
+            &-def {
+                svg rect {
+                    fill: #0d47a1;
+                }
+            }
+            &-atk {
+                svg rect {
+                    fill: #b71c1c;
+                }
+            }
         }
     }
 }
