@@ -1,0 +1,11 @@
+.dice-toolbar {
+    .dice-container {
+        margin: auto;
+        max-width: 400px;
+        text-align: center;
+        padding: 0;
+        .dice {
+            padding: 0 0.5rem;
+        }
+    }
+}

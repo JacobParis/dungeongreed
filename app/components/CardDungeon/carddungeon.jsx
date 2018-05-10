@@ -1,4 +1,5 @@
 import Dice from './dice.js';
+import DiceToolbar from '../components/dicetoolbar.js';
 
 export default class CardDungeon {
 
@@ -8,7 +9,7 @@ export default class CardDungeon {
         this.title = <header class="dungeon-title"/>;
         this.image = <img class="dungeon-image" src="https://placekitten.com/250/250" width="250" height="250" />
         this.body = <p class="dungeon-body" />;
-        this.def = <ul class="dungeon-stats-def" />;
+        //this.def = <ul class="dungeon-stats-def" />;
         this.atk = <ul class="dungeon-stats-atk" />;
         this.footer = <footer class="dungeon-footer" />;
 
@@ -25,7 +26,7 @@ export default class CardDungeon {
             </section>
         );
 
-        this.toolbar = <span>Toolbar</span>;
+        this.toolbar = new DiceToolbar();
         //if(config.color) this.setColor(config.color);
     }
 
@@ -43,9 +44,10 @@ export default class CardDungeon {
         this.body.innerText = data.body;
         this.footer.innerText = data.footer;
 
-        this.createDice(this.def, data.stats.def);
+        //this.createDice(this.def, data.stats.def);
         this.createDice(this.atk, data.stats.atk);
 
+        this.toolbar.setWhiteDice(3);
         this.show();
     }
 
@@ -55,7 +57,7 @@ export default class CardDungeon {
 
     createDice(container, stats) {
         for(let i of stats) {
-            const die = new Dice(i);
+            const die = new Dice(i, 15);
             container.appendChild(die.element);
         }
     }
@@ -65,9 +67,10 @@ export default class CardDungeon {
         this.body.innerText = "";
         this.footer.innerText = "";
 
-        this.def.innerHTML = "";
+        //this.def.innerHTML = "";
         this.atk.innerHTML = "";
     }
+
     fade() {
         this.container.style.opacity = 0.5;
     }

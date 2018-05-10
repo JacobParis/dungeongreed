@@ -2,7 +2,6 @@ import Sunburst from '../components/sunburst.js';
 import StatusButton from '../components/statusbutton.js';
 import Card from '../components/card.js';
 import UserList from '../components/userlist.js';
-import LetterButtons from '../components/letterbuttons.js';
 
 import CardDungeon from '../components/carddungeon.js';
 
@@ -103,14 +102,16 @@ export default class RoomScene {
             </section>
         );
 
-        this.toolbar = <span />;
+        // Set the toolbar in the cardModule.toolbar
+        this.toolbar = <span />; 
+
         this.page = (
             <main>
                 {this.sunburst.render()}
                 {this.gameSection}
-                <section class="bottom">
-                    {this.statusButton.render()}
+                <section class="fix-bottom">
                     {this.toolbar}
+                    {this.statusButton.render()}
                 </section>
             </main>
         );
@@ -132,7 +133,7 @@ export default class RoomScene {
         }
 
         this.toolbar.innerHTML = "";
-        this.toolbar.appendChild(cardModule.toolbar);
+        this.toolbar.appendChild(cardModule.toolbar.element);
 
         if (card.maximize) {
             this.innerGameSection.classList.add("maximize");

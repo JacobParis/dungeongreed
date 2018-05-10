@@ -1,7 +1,7 @@
 export default class StatusButton {
     constructor(text, color) {
         this.color = color;
-        this.button = <button class={`${color} wide primary fix-bottom`} />;
+        this.button = <button class={`${color} wide primary`} />;
         this.button.addEventListener('click', () => this.onClick());
 
         if(text) {
